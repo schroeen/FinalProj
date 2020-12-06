@@ -1,0 +1,63 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f611467c401, pid=981, tid=999
+#
+# JRE version: OpenJDK Runtime Environment (11.0.8+10) (build 11.0.8+10-post-Ubuntu-0ubuntu118.04.1)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.8+10-post-Ubuntu-0ubuntu118.04.1, mixed mode, sharing, tiered, compressed oops, serial gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x2401]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/runner/FinalProj/core.981)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: Main
+
+Host: Intel(R) Xeon(R) CPU @ 2.30GHz, 4 cores, 953M, Ubuntu 18.04.5 LTS
+Time: Sun Dec  6 19:21:38 2020 UTC elapsed time: 3 seconds (0d 0h 0m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f61101e7000):  JavaThread "AWT-EventQueue-0" [_thread_in_vm, id=999, stack(0x00007f60cd25e000,0x00007f60cd35f000)]
+
+Stack: [0x00007f60cd25e000,0x00007f60cd35f000],  sp=0x00007f60cd3585a0,  free space=1001k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x2401]
+C  [libjimage.so+0x30ea]
+C  [libjimage.so+0x35c6]  JIMAGE_FindResource+0xd6
+V  [libjvm.so+0x59097e]
+V  [libjvm.so+0x5936e0]
+V  [libjvm.so+0xd50b85]
+V  [libjvm.so+0xd4e51a]
+V  [libjvm.so+0xd4eb55]
+V  [libjvm.so+0x586f29]
+V  [libjvm.so+0xa05ce5]
+V  [libjvm.so+0x593727]
+V  [libjvm.so+0xd50b85]
+V  [libjvm.so+0xd4e51a]
+V  [libjvm.so+0xd51112]
+V  [libjvm.so+0x647127]
+V  [libjvm.so+0xa3c57a]
+V  [libjvm.so+0x844136]
+V  [libjvm.so+0x84502d]
+j  java.io.RandomAccessFile.getChannel()Ljava/nio/channels/FileChannel;+38 java.base@11.0.8
+j  sun.font.TrueTypeFont.open(Z)Ljava/nio/channels/FileChannel;+51 java.desktop@11.0.8
+j  sun.font.TrueTypeFont.verify(Z)V+2 java.desktop@11.0.8
+j  sun.font.TrueTypeFont.<init>(Ljava/lang/String;Ljava/lang/Object;IZZ)V+51 java.desktop@11.0.8
+j  sun.font.TrueTypeFont.<init>(Ljava/lang/String;Ljava/lang/Object;IZ)V+7 java.desktop@11.0.8
+j  sun.font.SunFontManager.registerFontFile(Ljava/lang/String;[Ljava/lang/String;IZI)Lsun/font/PhysicalFont;+76 java.desktop@11.0.8
+j  sun.font.SunFontManager.initialiseDeferredFont(Ljava/lang/String;)Lsun/font/PhysicalFont;+72 java.desktop@11.0.8
+j  sun.font.CompositeFont.doDeferredInitialisation(I)V+73 java.desktop@11.0.8
+j  sun.font.CompositeFont.getSlotFont(I)Lsun/font/PhysicalFont;+11 java.desktop@11.0.8
+j  sun.font.CompositeStrike.getStrikeForSlot(I)Lsun/font/PhysicalStrike;+27 java.desktop@11.0.8
+j  sun.font.CompositeStrike.getFontMetrics()Lsun/font/StrikeMetrics;+31 java.desktop@11.0.8
+j  sun.font.FontDesignMetrics.initMatrixAndMetrics()V+28 java.desktop@11.0.8
+j  sun.font.FontDesignMetrics.<init>(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V+62 java.desktop@11.0.8
+j  sun.font.FontDesignMetrics.getMetrics(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/font/FontDesignMetrics;+128 java.desktop@11.0.8
+j  sun.swing.SwingUtilities2.getFontMetrics(Ljavax/swing/JComponent;Ljava/awt/Font;)Ljava/awt/FontMetrics;+15 java.desktop@11.0.8
+j  javax.swing.JComponent.getFontMetrics(Ljava/awt/Font;)Ljava/awt/FontMetrics;+2 java.desktop@11.0.8
