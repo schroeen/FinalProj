@@ -36,7 +36,7 @@ public class Game implements ActionListener {
 
   Game() {
   
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("Group 9's Game");
     frame.setLayout(new FlowLayout());
     frame.setSize(300, 180);
     
