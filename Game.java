@@ -9,7 +9,11 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
 public class Game implements ActionListener {
+  JLabel welcome;
+  JTextField name;
   JLabel question;
   JButton selectOne;
   JButton selectTwo;
@@ -20,6 +24,8 @@ public class Game implements ActionListener {
   JButton nextQuestion;
   String insert;
 
+  
+  
   //Creating Question List ArrayList
   ArrayList<Question> questionList = new ArrayList<Question>();
 
@@ -39,6 +45,7 @@ public class Game implements ActionListener {
     JFrame frame = new JFrame("Group 9's Game");
     frame.setLayout(new FlowLayout());
     frame.setSize(300, 180);
+    JLabel welcome = new JLabel("Welcome to the game!");
     
 
     //FileReader
@@ -83,13 +90,16 @@ public class Game implements ActionListener {
     selectThree.addActionListener(this);
     selectFour.addActionListener(this);
 
+
     score = new JLabel("");
     yesNo = new JLabel("");
     nextQuestion = new JButton("Next Question");
+    nextQuestion.setForeground(Color.BLUE);
 
     nextQuestion.addActionListener(this);
 
     //Adding objects to frame and making the GUI visible
+    frame.add(welcome);
     frame.add(question);
     frame.add(selectOne);
     frame.add(selectTwo);
@@ -111,6 +121,7 @@ public class Game implements ActionListener {
         yesNo.setText("");
         score.setText("Correct! Your score is: "+points);
         selectTwo.setEnabled(false);
+        
       }
       else if(ae.getActionCommand().equals("Next Question")){
         score.setText("");
@@ -120,11 +131,13 @@ public class Game implements ActionListener {
         selectThree.setText(questionList.get(1).getAnswerThreeText());
         selectFour.setText(questionList.get(1).getAnswerFourText());
         selectTwo.setEnabled(true);
+        
       }
       else {
         yesNo.setText("Wrong Answer! -2 Points");
         score.setText("");
         incorrect = -2;
+        
       }
     }
     else if(question.getText().equals(questionList.get(1).getQuestionText())){
@@ -132,7 +145,6 @@ public class Game implements ActionListener {
         yesNo.setText("");
         selectOne.setEnabled(false);
         points = points+(questionList.get(1).getPoints());
-        //points = points+points;
         score.setText("Correct! Your score is: "+points);
       }
       else if(ae.getActionCommand().equals("Next Question")){
@@ -177,7 +189,6 @@ public class Game implements ActionListener {
       if(ae.getActionCommand().equals(questionList.get(3).getAnswerThreeText())){
         yesNo.setText("");
         points = points+(questionList.get(3).getPoints());
-        //points = points+points;
         score.setText("Correct! Your score is: "+points);
         selectThree.setEnabled(false);
       }
